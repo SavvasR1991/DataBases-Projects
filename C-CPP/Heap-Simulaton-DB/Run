@@ -1,0 +1,32 @@
+#!/bin/bash
+DIR=$(pwd)			
+
+
+if [ "$1" == "clean" ] 
+then	
+	echo "Clean up.."
+	rm -rfv Heap_Simulation/build/*
+
+else
+	if [ "$1" != "" ]
+	then
+		echo "Ignoring extra arguments.."
+	fi
+	echo "Running project.."
+	echo "CMake Building for Heap simulation.."
+	cd Heap_Simulation
+	mkdir build
+	cd build
+	cmake ..
+	echo "CMake Build done"
+	echo "Build project..."
+	make
+	echo "Build done..."
+
+	./HeapSimulation 
+
+
+
+fi
+
+
